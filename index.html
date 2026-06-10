@@ -1,135 +1,251 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PureFudge - Melt-in-Your-Mouth Brownie Bites</title>
-    <!-- Google Fonts -->
-    <link href="https://googleapis.com" rel="stylesheet">
+    <title>Funny Brownie - Fudgy Brownies Bikin Happy!</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base Styles */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: #FFF9F2; color: #3E2723; scroll-behavior: smooth; }
-        
-        /* Navigation */
-        nav { display: flex; justify-content: space-between; align-items: center; padding: 25px 10%; background-color: rgba(255, 249, 242, 0.95); position: fixed; width: 100%; top: 0; z-index: 100; backdrop-filter: blur(5px); border-bottom: 1px solid rgba(62, 39, 35, 0.05); }
-        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 800; color: #3E2723; text-decoration: none; }
-        .nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
-        .nav-links a { text-decoration: none; color: #3E2723; font-weight: 600; font-size: 14px; transition: 0.3s; }
-        .nav-links a:hover { color: #E0A96D; }
-        .nav-cta { background-color: #3E2723; color: #FFF9F2 !important; padding: 8px 18px; border-radius: 20px; }
-        .nav-cta:hover { background-color: #E0A96D !important; color: #3E2723 !important; }
-
-        /* Hero Section */
-        .hero { display: flex; align-items: center; min-height: 100vh; padding: 140px 10% 80px 10%; gap: 50px; }
-        .hero-content { flex: 1.2; }
-        .hero-content h1 { font-family: 'Playfair Display', serif; font-size: 52px; line-height: 1.2; margin-bottom: 20px; }
-        .hero-content span { color: #E0A96D; }
-        .hero-content p { font-size: 16px; line-height: 1.6; margin-bottom: 30px; color: #5C4033; }
-        .cta-btn { display: inline-block; padding: 15px 35px; background-color: #3E2723; color: #FFF9F2; text-decoration: none; font-weight: 600; border-radius: 30px; transition: 0.3s; box-shadow: 0 4px 15px rgba(62,39,35,0.2); text-align: center; }
-        .cta-btn:hover { background-color: #E0A96D; color: #3E2723; transform: translateY(-2px); }
-        .hero-image { flex: 0.8; text-align: center; }
-        .hero-image img { max-width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-
-        /* Global Section Header */
-        .section-header { text-align: center; max-width: 700px; margin: 0 auto 50px auto; }
-        .section-header h2 { font-family: 'Playfair Display', serif; font-size: 38px; color: #3E2723; margin-bottom: 15px; font-weight: 800; }
-        .section-header p { color: #705446; font-size: 16px; line-height: 1.6; }
-
-        /* Features Section */
-        .features { padding: 80px 10%; background-color: #F5EBE0; text-align: center; }
-        .features h2 { font-family: 'Playfair Display', serif; font-size: 36px; margin-bottom: 50px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
-        .feature-card { background: #FFF9F2; padding: 40px 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.02); }
-        .feature-card h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 15px; }
-        .feature-card p { font-size: 14px; line-height: 1.6; color: #5C4033; }
-
-        /* Product Highlight (Bite Size) */
-        .product-highlight { display: flex; align-items: center; padding: 100px 10%; gap: 60px; }
-        .highlight-img { flex: 1; }
-        .highlight-img img { width: 100%; border-radius: 20px; box-shadow: 0 15px 30px rgba(0,0,0,0.05); }
-        .highlight-text { flex: 1; }
-        .highlight-text h2 { font-family: 'Playfair Display', serif; font-size: 38px; margin-bottom: 20px; }
-        .highlight-text p { font-size: 16px; line-height: 1.6; margin-bottom: 25px; }
-
-        /* Varian Menu Section (Lebar Full Web & Menyamping) */
-        .menu-section { width: 100%; padding: 100px 5%; background-color: #FFF9F2; box-sizing: border-box; }
-        .menu-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; max-width: 1300px; margin: 0 auto; }
-        .menu-card { background: #FFFFFF; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(62,39,35,0.03); transition: 0.3s; border: 1px solid rgba(62,39,35,0.02); text-align: center; }
-        .menu-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(62,39,35,0.08); }
-        .menu-img-box { height: 250px; width: 100%; overflow: hidden; background-color: #EAEAEA; }
-        .menu-img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .menu-info { padding: 25px; }
-        .menu-info h3 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 10px; color: #3E2723; }
-        .menu-desc { font-size: 14px; color: #705446; line-height: 1.5; margin-bottom: 15px; }
-        .menu-tag { display: inline-block; margin-bottom: 10px; padding: 4px 12px; background: #F5EBE0; border-radius: 12px; font-size: 12px; font-weight: 600; color: #3E2723; }
-
-        /* Pricing Section */
-        .pricing { background-color: #F5EBE0; padding: 100px 10%; }
-        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 900px; margin: 0 auto; }
-        .price-card { background: #FFF9F2; padding: 40px 30px; border-radius: 24px; text-align: center; position: relative; overflow: hidden; }
-        .price-card.popular { border: 2px solid #E0A96D; background-color: #FFFFFF; box-shadow: 0 15px 35px rgba(62,39,35,0.08); }
-        .ribbon { position: absolute; top: 15px; right: -35px; background: #E0A96D; color: #3E2723; font-weight: 700; font-size: 11px; padding: 4px 40px; transform: rotate(45deg); }
-        .price-card h3 { font-family: 'Playfair Display', serif; font-size: 24px; margin-bottom: 10px; }
-        .size-info { font-size: 13px; color: #705446; margin-bottom: 15px; }
-        .price-amount { font-family: 'Playfair Display', serif; font-size: 34px; font-weight: 800; color: #3E2723; margin-bottom: 20px; }
-        .price-features { list-style: none; margin-bottom: 30px; text-align: left; display: inline-block; }
-        .price-features li { margin-bottom: 10px; font-size: 14px; color: #5C4033; padding-left: 20px; position: relative; }
-        .price-features li::before { content: "✓"; position: absolute; left: 0; color: #E0A96D; font-weight: bold; }
-
-        /* Process Section */
-        .process { background-color: #FFF9F2; padding: 100px 10%; text-align: center; }
-        .steps-container { display: flex; justify-content: space-between; gap: 20px; max-width: 800px; margin: 0 auto; }
-        .step { flex: 1; padding: 15px; }
-        .step-num { width: 45px; height: 45px; background: #3E2723; color: #FFF9F2; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; margin: 0 auto 15px auto; }
-        .step h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 8px; }
-        .step p { font-size: 13px; color: #705446; line-height: 1.4; }
-
-        /* Testimonials Section */
-        .testimonials { background-color: #F5EBE0; padding: 100px 10%; }
-        .testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .testi-card { background: #FFF9F2; padding: 25px; border-radius: 20px; text-align: left; }
-        .stars { color: #E0A96D; margin-bottom: 10px; }
-        .testi-card p { font-size: 14px; font-style: italic; color: #5C4033; margin-bottom: 15px; line-height: 1.5; }
-        .user-info { display: flex; align-items: center; gap: 12px; }
-        .user-avatar { width: 40px; height: 40px; background: #3E2723; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 13px; }
-
-        /* Order/WhatsApp Section */
-        .whatsapp-section { background-color: #3E2723; color: #FFF9F2; text-align: center; padding: 100px 10%; }
-        .whatsapp-section h2 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 20px; }
-        .whatsapp-section p { color: #D5C5BC; max-width: 600px; margin: 0 auto 35px auto; font-size: 16px; line-height: 1.6; }
-
-        /* Footer */
-        footer { background-color: #271714; color: #FFF9F2; text-align: center; padding: 40px; font-size: 14px; border-top: 1px solid rgba(255,259,242,0.05); }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 991px) {
-            nav { padding: 20px 5%; }
-            .nav-links { display: none; }
-            .hero { flex-direction: column-reverse; text-align: center; padding: 120px 5% 60px 5%; gap: 40px; }
-            .hero-content h1 { font-size: 38px; }
-            .product-highlight { flex-direction: column; padding: 60px 5%; text-align: center; }
-            .menu-section { padding: 60px 20px; }
-            .menu-grid { grid-template-columns: 1fr; gap: 25px; } /* Di HP otomatis ke bawah agar pas */
-            .steps-container { flex-direction: column; gap: 30px; }
+        body {
+            font-family: 'Poppins', sans-serif;
         }
     </style>
 </head>
-<body>
+<body class="bg-[#FFFDF9] text-[#4A3728]">
 
-    <!-- Header Navigation -->
-    <nav>
-        <a href="#home" class="logo">PureFudge.</a>
-        <ul class="nav-links">
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#keunggulan">Keunggulan</a></li>
-            <li><a href="#menu">Varian Topping</a></li>
-            <li><a href="#harga">Paket Harga</a></li>
-            <li><a href="#order" class="nav-cta">Pesan Sekarang</a></li>
-        </ul>
+    <!-- NAVBAR -->
+    <nav class="sticky top-0 z-50 bg-[#FFFDF9]/90 backdrop-blur-md border-b border-[#EADBC8]">
+        <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold text-[#78350F] tracking-wide flex items-center gap-2">
+                🍫 Funny <span class="text-[#F59E0B]">Brownie</span>
+            </a>
+            <div class="hidden md:flex space-x-8 font-semibold">
+                <a href="#home" class="hover:text-[#F59E0B] transition">Home</a>
+                <a href="#menu" class="hover:text-[#F59E0B] transition">Menu</a>
+                <a href="#pembayaran" class="hover:text-[#F59E0B] transition">Cara Bayar</a>
+                <a href="#kontak" class="hover:text-[#F59E0B] transition">Kontak</a>
+            </div>
+            <a href="#menu" class="bg-[#78350F] text-white px-5 py-2 rounded-full font-bold hover:bg-[#F59E0B] hover:text-[#78350F] transition shadow-md">
+                Pesan Sekarang
+            </a>
+        </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Satu Gigitan, <br>Kemewahan Rasa yang <span>Lumer di Dalam</span></h1>
+    <!-- HERO SECTION -->
+    <section id="home" class="py-16 md:py-24 max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+            <span class="bg-[#FEF3C7] text-[#D97706] text-sm font-bold px-4 py-1.5 rounded-full uppercase tracking-wider">
+                100% Shiny Crust & Fudgy
+            </span>
+            <h1 class="text-4xl md:text-6xl font-black text-[#451A03] leading-tight">
+                Satu Gigitan, <br><span class="text-[#F59E0B]">Bikin Auto Happy!</span>
+            </h1>
+            <p class="text-lg text-[#78350F]/80 leading-relaxed">
+                Funny Brownie menghadirkan *fudgy brownies* premium dengan tekstur yang padat, lumer di dalam, dan permukaan *shiny crust* yang renyah. Dibuat dengan cokelat pilihan tanpa bahan pengawet.
+            </p>
+            <div class="flex flex-wrap gap-4 pt-2">
+                <a href="#menu" class="bg-[#78350F] text-white px-8 py-3.5 rounded-xl font-bold text-lg hover:bg-[#F59E0B] hover:text-[#78350F] transition transform hover:-translate-y-1 shadow-lg">
+                    Lihat Menu 🤤
+                </a>
+                <a href="#kontak" class="border-2 border-[#78350F] text-[#78350F] px-8 py-3.5 rounded-xl font-bold text-lg hover:bg-[#78350F] hover:text-white transition transform hover:-translate-y-1">
+                    Hubungi Kami
+                </a>
+            </div>
+        </div>
+        <div class="relative">
+            <div class="absolute inset-0 bg-[#F59E0B] rounded-3xl rotate-3 scale-105 opacity-20 blur-sm"></div>
+            <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" 
+                 alt="Delicious Fudgy Brownies" 
+                 class="rounded-3xl shadow-2xl relative z-10 w-full object-cover h-[400px] border-4 border-white">
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION / KEUNGGULAN -->
+    <section class="bg-[#FDF6EC] py-12 border-y border-[#EADBC8]">
+        <div class="max-w-6xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-4">
+                <h3 class="text-3xl font-bold text-[#78350F]">Premium</h3>
+                <p class="text-sm text-[#78350F]/70">Bahan Cokelat Belgia</p>
+            </div>
+            <div class="p-4">
+                <h3 class="text-3xl font-bold text-[#78350F]">Fresh</h3>
+                <p class="text-sm text-[#78350F]/70">Dipanggang Setiap Hari</p>
+            </div>
+            <div class="p-4">
+                <h3 class="text-3xl font-bold text-[#78350F]">Custom</h3>
+                <p class="text-sm text-[#78350F]/70">Bebas Pilih Topping</p>
+            </div>
+            <div class="p-4">
+                <h3 class="text-3xl font-bold text-[#78350F]">Aman</h3>
+                <p class="text-sm text-[#78350F]/70">Tanpa Pengawet & Halal</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU & HARGA SECTION -->
+    <section id="menu" class="py-20 max-w-6xl mx-auto px-4">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-[#451A03] mb-4">Pilihan Menu Ter-Favorite</h2>
+            <p class="text-[#78350F]/80">Pilih ukuran dan topping menariamu. Semua varian dijamin bikin nagih!</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Menu 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-[#EADBC8] flex flex-col justify-between">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3?auto=format&fit=crop&w=500&q=80" alt="Classic Fudgy" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-[#451A03]">Classic Almond</h3>
+                            <span class="bg-[#FEF3C7] text-[#D97706] text-xs font-bold px-2.5 py-1 rounded">Best Seller</span>
+                        </div>
+                        <p class="text-sm text-[#78350F]/70 mb-4">Brownies sekat dengan taburan kacang almond renyah di atas permukaan yang shiny.</p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="border-t border-[#EADBC8] pt-4 flex justify-between items-center">
+                        <span class="text-2xl font-black text-[#78350F]">Rp 65.000</span>
+                        <span class="text-xs text-[#78350F]/60">Size 20x10 cm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-[#EADBC8] flex flex-col justify-between">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1624300680536-34171ec5d016?auto=format&fit=crop&w=500&q=80" alt="Lotus Biscoff" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-[#451A03]">Lotus Speculoos</h3>
+                            <span class="bg-[#F59E0B] text-white text-xs font-bold px-2.5 py-1 rounded">Premium</span>
+                        </div>
+                        <p class="text-sm text-[#78350F]/70 mb-4">Perpaduan adonan cokelat pekat dengan selai dan biskuit Lotus Biscoff yang beraroma rempah manis.</p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="border-t border-[#EADBC8] pt-4 flex justify-between items-center">
+                        <span class="text-2xl font-black text-[#78350F]">Rp 85.000</span>
+                        <span class="text-xs text-[#78350F]/60">Size 20x20 cm</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition border border-[#EADBC8] flex flex-col justify-between">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1515037893149-de7f840978e2?auto=format&fit=crop&w=500&q=80" alt="Mix Topping" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-xl font-bold text-[#451A03]">Funny Party Mix</h3>
+                            <span class="bg-[#FEF3C7] text-[#D97706] text-xs font-bold px-2.5 py-1 rounded">Favorite</span>
+                        </div>
+                        <p class="text-sm text-[#78350F]/70 mb-4">1 Box isi 25 sekat dengan 5 varian topping: Keju, Chocochips, Oreo, Almond, dan Nutella.</p>
+                    </div>
+                </div>
+                <div class="p-6 pt-0">
+                    <div class="border-t border-[#EADBC8] pt-4 flex justify-between items-center">
+                        <span class="text-2xl font-black text-[#78350F]">Rp 95.000</span>
+                        <span class="text-xs text-[#78350F]/60">Size 20x20 cm</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARA PEMBAYARAN SECTION -->
+    <section id="pembayaran" class="bg-[#78350F] text-white py-20">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-extrabold mb-4 text-[#FEF3C7]">Cara Pembayaran & Pemesanan</h2>
+                <p class="text-white/80">Prosesnya gampang dan praktis, brownies siap dikirim ke rumahmu!</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-[#451A03] p-8 rounded-2xl border border-[#92400E] text-center space-y-4">
+                    <div class="w-12 h-12 bg-[#F59E0B] text-[#451A03] rounded-full flex items-center justify-center font-black text-xl mx-auto">1</div>
+                    <h3 class="text-xl font-bold">Pilih & Pesan</h3>
+                    <p class="text-sm text-white/70">Pilih menu favoritmu lalu klik tombol pesan untuk tersambung langsung ke WhatsApp Admin kami.</p>
+                </div>
+                <div class="bg-[#451A03] p-8 rounded-2xl border border-[#92400E] text-center space-y-4">
+                    <div class="w-12 h-12 bg-[#F59E0B] text-[#451A03] rounded-full flex items-center justify-center font-black text-xl mx-auto">2</div>
+                    <h3 class="text-xl font-bold">Transfer Bank / QRIS</h3>
+                    <p class="text-sm text-white/70">Lakukan pembayaran aman via transfer Bank (BCA/Mandiri) atau scan satu QRIS untuk semua e-wallet (OVO, Dana, ShopeePay).</p>
+                </div>
+                <div class="bg-[#451A03] p-8 rounded-2xl border border-[#92400E] text-center space-y-4">
+                    <div class="w-12 h-12 bg-[#F59E0B] text-[#451A03] rounded-full flex items-center justify-center font-black text-xl mx-auto">3</div>
+                    <h3 class="text-xl font-bold">Kirim / Pick-up</h3>
+                    <p class="text-sm text-white/70">Brownies dipanggang fresh dan dikirim menggunakan GrabExpress/Gojek instant/Sameday, atau bisa diambil langsung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK & FORM SECTION -->
+    <section id="kontak" class="py-20 max-w-6xl mx-auto px-4">
+        <div class="bg-[#FDF6EC] rounded-3xl p-8 md:p-16 border border-[#EADBC8] grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-[#451A03]">Ada Pertanyaan atau Mau Order Custom?</h2>
+                <p class="text-[#78350F]/80">Kami juga menerima pesanan untuk acara ulang tahun, hampers korporat, atau acara pernikahan. Hubungi kami kapan saja!</p>
+                
+                <div class="space-y-4 pt-4">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📍</span>
+                        <div>
+                            <h4 class="font-bold text-[#451A03]">Alamat Rumah Produksi</h4>
+                            <p class="text-sm text-[#78350F]/70">Jl. Manis Selalu No. 12, Jakarta Selatan</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📞</span>
+                        <div>
+                            <h4 class="font-bold text-[#451A03]">WhatsApp Admin</h4>
+                            <p class="text-sm text-[#78350F]/70">+62 812-3456-7890</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl">📸</span>
+                        <div>
+                            <h4 class="font-bold text-[#451A03]">Instagram</h4>
+                            <p class="text-sm text-[#78350F]/70">@funny.brownie</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form Kontak Singkat -->
+            <div class="bg-white p-8 rounded-2xl shadow-lg border border-[#EADBC8]">
+                <h3 class="text-xl font-bold text-[#451A03] mb-6">Kirim Pesan Cepat</h3>
+                <form class="space-y-4" onsubmit="alert('Terima kasih! Pesan Anda telah terkirim.'); return false;">
+                    <div>
+                        <label class="block text-sm font-semibold text-[#78350F] mb-1">Nama Lengkap</label>
+                        <input type="text" required class="w-full px-4 py-2.5 rounded-lg border border-[#EADBC8] focus:outline-none focus:border-[#F59E0B]" placeholder="Nama kamu">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-[#78350F] mb-1">Nomor WhatsApp</label>
+                        <input type="tel" required class="w-full px-4 py-2.5 rounded-lg border border-[#EADBC8] focus:outline-none focus:border-[#F59E0B]" placeholder="0812xxxxxx">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-[#78350F] mb-1">Catatan / Pesanan</label>
+                        <textarea required rows="3" class="w-full px-4 py-2.5 rounded-lg border border-[#EADBC8] focus:outline-none focus:border-[#F59E0B]" placeholder="Mau pesan rasa apa atau ada request khusus?"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[#F59E0B] text-[#451A03] font-bold py-3 rounded-lg hover:bg-[#78350F] hover:text-white transition shadow-md">
+                        Kirim via WhatsApp 🚀
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#451A03] text-white/60 text-center py-8 border-t border-[#78350F]">
+        <div class="max-w-6xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-white text-lg">🍫 Funny Brownie</p>
+            <p class="text-sm">&copy; 2026 Funny Brownie. All rights reserved. Dibuat dengan penuh rasa manis.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
